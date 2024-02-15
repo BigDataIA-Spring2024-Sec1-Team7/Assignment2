@@ -1,0 +1,5 @@
+Boto3
+os
+dotenv
+snowflake
+snowflake-sqlalchemy
