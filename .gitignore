@@ -187,5 +187,7 @@ dist/
 grobid_client_python.egg-info/
 # Virtual environment
 grobid/venvtest/
-
+venv*
+*venv
+.DS_Store
 

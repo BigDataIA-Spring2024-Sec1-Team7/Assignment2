@@ -4,8 +4,8 @@ from grobid_client.grobid_client import GrobidClient
 
 
 if __name__ == "__main__":
-    client = GrobidClient(config_path="/Users/asawari/Desktop/grobid_test/grobid_client_python/config.json")
-    client.process("processFulltextDocument", "/Users/asawari/Desktop/Spring2024/BigDataArchIA/Assignment2/grobid_client_python/Files_pdf/", output="/Users/asawari/Desktop/Spring2024/BigDataArchIA/Assignment2/grobid_client_python/Grobid_op/", consolidate_citations=True, tei_coordinates=True, force=True)
+    client = GrobidClient(config_path="config.json")
+    client.process("processFulltextDocument", "../../sourcedata", output="Grobid_op", consolidate_citations=True, tei_coordinates=True, force=True)
 
 
 
@@ -38,6 +38,6 @@ def copy_xml_to_txt(xml_folder):
                 for line in text_content:
                     f.write(line + '\n')
 
-# Example usage:
-xml_folder = '/Users/asawari/Desktop/Spring2024/BigDataArchIA/Assignment2/grobid_client_python/Grobid_op'
+
+xml_folder = 'Grobid_op'
 copy_xml_to_txt(xml_folder)
