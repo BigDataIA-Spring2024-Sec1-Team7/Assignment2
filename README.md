@@ -50,6 +50,11 @@ Snowflake database.
 ## Technologies used
 Scrapy, Selenium, SQLAlchemy, GROBID, PyPdf, Amazon S3, Snowflake
 
+## Architecture Diagram
+
+<img width="1261" alt="image" src="https://github.com/BigDataIA-Spring2024-Sec1-Team7/Assignment2/assets/113384021/e4acd1cd-f6ce-49ce-896f-26fdedc4b564">
+
+
 ## Pre-requisites
 
 
