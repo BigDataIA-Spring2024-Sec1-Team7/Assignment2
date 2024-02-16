@@ -45,12 +45,14 @@ s3_txt4 = 'files_txt/Grobid_RR_2024_l1_combined.txt'
 s3_txt5 = 'files_txt/Grobid_RR_2024_l2_combined.txt'
 s3_txt6 = 'files_txt/Grobid_RR_2024_l3_combined.txt'
 
-txt_file_path1= '../PyPdf/PyPdf_output/PyPDF_RR_2024_l1_combined.txt'
-txt_file_path2= '../PyPdf/PyPdf_output/PyPDF_RR_2024_l2_combined.txt'
-txt_file_path3= '../PyPdf/PyPdf_output/PyPDF_RR_2024_l3_combined.txt'
-txt_file_path4= '../Grobid_extract/Grobid_op/Grobid_RR_2024_l1_combined.txt'
-txt_file_path5= '../Grobid_extract/Grobid_op/Grobid_RR_2024_l2_combined.txt'
-txt_file_path6= '../Grobid_extract/Grobid_op/Grobid_RR_2024_l3_combined.txt'
+txt_file_path1= '../../notebooks/PyPdf/PyPdf_output/PyPDF_RR_2024_l1_combined.txt'
+txt_file_path2= '../../notebooks/PyPdf/PyPdf_output/PyPDF_RR_2024_l2_combined.txt'
+txt_file_path3= '../../notebooks/PyPdf/PyPdf_output/PyPDF_RR_2024_l3_combined.txt'
+txt_file_path4= '../../notebooks/Grobid_extract/Grobid_op/Grobid_RR_2024_l1_combined.txt'
+txt_file_path5= '../../notebooks/Grobid_extract/Grobid_op/Grobid_RR_2024_l2_combined.txt'
+txt_file_path6= '../../notebooks/Grobid_extract/Grobid_op/Grobid_RR_2024_l3_combined.txt'
+
+csv_file_scraped = '../webscraping/data/cfascraping_data.csv'
 
 upload_csv_to_s3(csv_file_path, bucket_name, s3_csv)
 upload_csv_to_s3(txt_file_path1, bucket_name, s3_txt1)
@@ -60,6 +62,8 @@ upload_csv_to_s3(txt_file_path3, bucket_name, s3_txt3)
 upload_csv_to_s3(txt_file_path4, bucket_name, s3_txt4)
 upload_csv_to_s3(txt_file_path5, bucket_name, s3_txt5)
 upload_csv_to_s3(txt_file_path6, bucket_name, s3_txt6)
+
+upload_csv_to_s3(csv_file_scraped, bucket_name, s3_txt3)
 
 
 
