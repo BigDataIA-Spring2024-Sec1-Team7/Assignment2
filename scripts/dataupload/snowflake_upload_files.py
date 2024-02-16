@@ -60,8 +60,7 @@ def insert_data_to_snowflake(file_path, link, table):
         connection.execute(f"USE WAREHOUSE {WAREHOUSE_NAME}")
         create_data_table_query = f"""CREATE TABLE IF NOT EXISTS {table} (
             text_column TEXT,
-            link_column TEXT,
-
+            link_column TEXT
            );
         """
         connection.execute(create_data_table_query)

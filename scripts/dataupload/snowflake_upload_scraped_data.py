@@ -20,10 +20,11 @@ base_url = URL.create(
 )
 
 # Creating database for storing cfa data
-create_cfa_database_query = f"CREATE OR REPLACE DATABASE {DATABASE_NAME};"
+create_cfa_database_query = f"CREATE DATABASE IF NOT EXISTS {DATABASE_NAME};"
+
 
 # Creating table for scraped data
-create_scraped_data_table_query = f"""CREATE OR REPLACE TABLE {TABLE_NAME} (
+create_scraped_data_table_query = f"""CREATE TABLE IF NOT EXISTS {TABLE_NAME} (
     link_summary STRING,
     topic STRING,
     year INTEGER,
@@ -37,7 +38,7 @@ create_scraped_data_table_query = f"""CREATE OR REPLACE TABLE {TABLE_NAME} (
 """
 
 # Creating warehouse for the cfa databases
-create_cfa_warehouse_query = f"""CREATE OR REPLACE WAREHOUSE {WAREHOUSE_NAME} WITH
+create_cfa_warehouse_query = f"""CREATE WAREHOUSE IF NOT EXISTS {WAREHOUSE_NAME} WITH
     WAREHOUSE_SIZE = 'X-SMALL'
     AUTO_SUSPEND = 180
     AUTO_RESUME = TRUE
@@ -46,12 +47,12 @@ create_cfa_warehouse_query = f"""CREATE OR REPLACE WAREHOUSE {WAREHOUSE_NAME} WI
 
 def execute_ddl_queries(connection):
     connection.execute(create_cfa_database_query)
+    connection.execute(f'USE WAREHOUSE {WAREHOUSE_NAME};')
+    connection.execute(f'USE DATABASE {DATABASE_NAME};')
     connection.execute(create_scraped_data_table_query)
     connection.execute(create_cfa_warehouse_query)
 
 def read_and_upload_df(connection):
-    connection.execute(f'USE WAREHOUSE {WAREHOUSE_NAME};')
-    connection.execute(f'USE DATABASE {DATABASE_NAME};')
 
     df = pd.read_csv('../webscraping/data/cfascraping_data.csv')
     values_list = []
