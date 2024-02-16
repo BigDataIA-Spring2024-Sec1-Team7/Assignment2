@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 import os
 from sqlalchemy.engine import URL
 import pandas as pd
+import re
 
 load_dotenv()
 
@@ -56,7 +57,7 @@ def insert_data_to_snowflake(file_path, link, table):
         connection = engine.connect()
         connection.execute("USE DATABASE all_files")
         connection.execute("USE WAREHOUSE all_wh")
-        create_data_table_query = f"""CREATE TABLE IF NOT EXISTS  {table} (
+        create_data_table_query = f"""CREATE TABLE IF NOT EXISTS {table} (
             text_column TEXT,
             link_column TEXT
            );
@@ -67,6 +68,7 @@ def insert_data_to_snowflake(file_path, link, table):
         with open(file_path, 'r') as file:
             text_data = file.read()
             text_data = str(text_data) 
+            re.sub(r'[\'"‘’”“]', '', text_data)
         link = str(link)
             
       
@@ -84,18 +86,18 @@ def insert_data_to_snowflake(file_path, link, table):
         print("Error:", e)
 
 # Example usage:
-# file_path = './PyPDF_RR_2024_l1_combined.txt'
-# link = 's3://s3-assignment2/files_txt/PyPDF_RR_2024_l1_combined.txt'
-# table = 'PyPDF'
-# insert_data_to_snowflake(file_path, link, table)
+file_path = './PyPDF_RR_2024_l1_combined.txt'
+link = 's3://s3-assignment2/files_txt/PyPDF_RR_2024_l1_combined.txt'
+table = 'PyPDF'
+insert_data_to_snowflake(file_path, link, table)
 
-# file_path = './PyPDF_RR_2024_l2_combined.txt'
-# link = 's3://s3-assignment2/files_txt/PyPDF_RR_2024_l2_combined.txt'
-# insert_data_to_snowflake(file_path, link, table)
+file_path = './PyPDF_RR_2024_l2_combined.txt'
+link = 's3://s3-assignment2/files_txt/PyPDF_RR_2024_l2_combined.txt'
+insert_data_to_snowflake(file_path, link, table)
 
-# file_path = './PyPDF_RR_2024_l3_combined.txt'
-# link = 's3://s3-assignment2/files_txt/PyPDF_RR_2024_l3_combined.txt'
-# insert_data_to_snowflake(file_path, link, table)
+file_path = './PyPDF_RR_2024_l3_combined.txt'
+link = 's3://s3-assignment2/files_txt/PyPDF_RR_2024_l3_combined.txt'
+insert_data_to_snowflake(file_path, link, table)
 
 
 file_path = './Grobid_RR_2024_l1_combined.txt'
@@ -103,13 +105,13 @@ link = 's3://s3-assignment2/files_txt/Grobid_RR_2024_l1_combined.txt'
 table = 'GROBID'
 insert_data_to_snowflake(file_path, link, table)
 
-# file_path = './Grobid_RR_2024_l2_combined.txt'
-# link = 's3://s3-assignment2/files_txt/Grobid_RR_2024_l2_combined.txt'
-# insert_data_to_snowflake(file_path, link, table)
+file_path = './Grobid_RR_2024_l2_combined.txt'
+link = 's3://s3-assignment2/files_txt/Grobid_RR_2024_l2_combined.txt'
+insert_data_to_snowflake(file_path, link, table)
 
-# file_path = './Grobid_RR_2024_l3_combined.txt'
-# link = 's3://s3-assignment2/files_txt/Grobid_RR_2024_l3_combined.txt'
-# insert_data_to_snowflake(file_path, link, table)
+file_path = './Grobid_RR_2024_l3_combined.txt'
+link = 's3://s3-assignment2/files_txt/Grobid_RR_2024_l3_combined.txt'
+insert_data_to_snowflake(file_path, link, table)
 
 connection.close()
 engine.dispose()
