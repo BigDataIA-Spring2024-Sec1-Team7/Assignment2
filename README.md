@@ -1,8 +1,13 @@
+
 ## Problem Statement
 Your task is to create two primary datasets from the 224 refresher readings listed on the
 CFA Institute’s website and the topic outlines(attached PDF files). These readings are
 crucial for finance professionals looking to improve their finance skills. The datasets will
 serve as the backbone for an intelligent application designed for these professionals.
+
+## Codelab Link
+
+[Codelab Link](https://codelabs-preview.appspot.com/?file_id=1WnCY3GktVoM2douHd1EgxT4bvKtYKiY69YNauRbe_zk#6)
 
 ## Project Goals
 
