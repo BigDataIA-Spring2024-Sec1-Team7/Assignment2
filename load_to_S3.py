@@ -55,14 +55,25 @@ s3_csv = 'cfa_csv/cfascraping_data.csv'
 s3_txt1 = 'files_txt/PyPDF_RR_2024_l1_combined.txt'
 s3_txt2 = 'files_txt/PyPDF_RR_2024_l2_combined.txt'
 s3_txt3 = 'files_txt/PyPDF_RR_2024_l3_combined.txt'
+s3_txt4 = 'files_txt/Grobid_RR_2024_l1_combined.txt'
+s3_txt5 = 'files_txt/Grobid_RR_2024_l2_combined.txt'
+s3_txt6 = 'files_txt/Grobid_RR_2024_l3_combined.txt'
+
 txt_file_path1= './PyPDF_RR_2024_l1_combined.txt'
 txt_file_path2= './PyPDF_RR_2024_l2_combined.txt'
 txt_file_path3= './PyPDF_RR_2024_l3_combined.txt'
+txt_file_path4= './Grobid_RR_2024_l1_combined.txt'
+txt_file_path5= './Grobid_RR_2024_l2_combined.txt'
+txt_file_path6= './Grobid_RR_2024_l3_combined.txt'
 
 upload_csv_to_s3(csv_file_path, bucket_name, s3_csv)
 upload_csv_to_s3(txt_file_path1, bucket_name, s3_txt1)
 upload_csv_to_s3(txt_file_path2, bucket_name, s3_txt2)
 upload_csv_to_s3(txt_file_path3, bucket_name, s3_txt3)
+
+upload_csv_to_s3(txt_file_path4, bucket_name, s3_txt4)
+upload_csv_to_s3(txt_file_path5, bucket_name, s3_txt5)
+upload_csv_to_s3(txt_file_path6, bucket_name, s3_txt6)
 
 
 
