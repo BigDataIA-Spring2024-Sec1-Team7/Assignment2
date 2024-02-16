@@ -67,7 +67,7 @@ def read_and_upload_df(connection):
     
     if(len(values_list) > 0):
         values_str = ','.join(values_list)
-        execute_insertion(values_str=values_str, id=df.size[0])
+        execute_insertion(values_str=values_str, id=df.shape[0])
 
 def execute_insertion(values_str, id):
     try:

@@ -1,0 +1,10 @@
+python-dotenv
+snowflake-sqlalchemy
+SQLAlchemy
+pandas
+boto3
+PyPDF2
+scrapy
+selenium
+webscraping
+scrapy-selenium
